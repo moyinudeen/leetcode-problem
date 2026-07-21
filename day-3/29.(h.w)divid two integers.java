@@ -6,7 +6,6 @@ class Solution {
         boolean isNegative = (dividend < 0) ^ (divisor < 0);
         long absDividend = Math.abs((long) dividend);
         long absDivisor = Math.abs((long) divisor);
-
         int quotient = 0;
         while (absDividend >= absDivisor) {
             long tempDivisor = absDivisor;
