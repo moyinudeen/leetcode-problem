@@ -15,10 +15,7 @@ class FooBar {
         
         for (int i = 0; i < n; i++) {
             fooSemaphore.acquire(); // Wait for foo's turn (decrements permit to 0)
-            
-            // printFoo.run() outputs "foo". Do not change or remove this line.
             printFoo.run();
-            
             barSemaphore.release(); // Give bar its turn (increments permit to 1)
         }
     }
@@ -26,12 +23,9 @@ class FooBar {
     public void bar(Runnable printBar) throws InterruptedException {
         
         for (int i = 0; i < n; i++) {
-            barSemaphore.acquire(); // Wait for bar's turn (decrements permit to 0)
-            
-            // printBar.run() outputs "bar". Do not change or remove this line.
+            barSemaphore.acquire();
             printBar.run();
-            
-            fooSemaphore.release(); // Give foo its turn (increments permit to 1)
+            fooSemaphore.release(); 
         }
     }
 }
