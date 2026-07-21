@@ -14,8 +14,6 @@ class Solution {
                 right = mid - 1; 
             }
         }
-        
-        // left represents the insertion index if not found
         return left;
     }
 }
