@@ -2,13 +2,11 @@ import java.util.function.IntConsumer;
 
 class ZeroEvenOdd {
     private int n;
-    private int state = 0; // 0: zero, 1: odd, 2: even
+    private int state = 0; 
     
     public ZeroEvenOdd(int n) {
         this.n = n;
     }
-
-    // printNumber.accept(x) outputs "x", where x is an integer.
     public synchronized void zero(IntConsumer printNumber) throws InterruptedException {
         for (int i = 1; i <= n; i++) {
             while (state != 0) {
@@ -16,9 +14,9 @@ class ZeroEvenOdd {
             }
             printNumber.accept(0);
             if (i % 2 == 1) {
-                state = 1; // Next should be odd
+                state = 1; 
             } else {
-                state = 2; // Next should be even
+                state = 2; 
             }
             notifyAll();
         }
@@ -30,7 +28,7 @@ class ZeroEvenOdd {
                 wait();
             }
             printNumber.accept(i);
-            state = 0; // Next should be zero
+            state = 0; 
             notifyAll();
         }
     }
@@ -41,7 +39,7 @@ class ZeroEvenOdd {
                 wait();
             }
             printNumber.accept(i);
-            state = 0; // Next should be zero
+            state = 0;
             notifyAll();
         }
     }
